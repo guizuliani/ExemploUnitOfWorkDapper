@@ -9,7 +9,7 @@ namespace ExemploUnitOfWorkDapper.Infrastructure.Repositories
 
         IEnumerable<Cliente> ObterTodos();
         void Adicionar(Cliente cliente);
-        void AtualizarData(Guid clienteId, DateTime data);
+        void Atualizar(Cliente cliente);
 
     }
 }

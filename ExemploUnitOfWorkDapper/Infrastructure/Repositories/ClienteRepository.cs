@@ -38,11 +38,17 @@ namespace ExemploUnitOfWorkDapper.Infrastructure.Repositories
             }, _unitOfWork.Transaction);
         }
 
-        public void AtualizarData(Guid clienteId, DateTime data)
+        public void Atualizar(Cliente cliente)
         {
-            var sql = "update Clientes set DataModificacao = @DataModificacao where ClienteId = @ClienteId";
+            var sql = "update Clientes set Nome = @Nome, Sobrenome = @Sobrenome, DataModificacao = @DataModificacao where ClienteId = @ClienteId";
 
-            _unitOfWork.Connection.Execute(sql, new { ClienteId = clienteId, DataModificacao = data }, _unitOfWork.Transaction);
+            _unitOfWork.Connection.Execute(sql, new
+            {
+                ClienteId = cliente.ClienteId,
+                Nome = cliente.Nome,
+                Sobrenome = cliente.Sobrenome,
+                DataModificacao = DateTime.Now
+            }, _unitOfWork.Transaction);
         }
 
     }

@@ -44,7 +44,9 @@ namespace ExemploUnitOfWorkDapper.Controllers
 
                 _repository.Adicionar(cliente);
 
-                _repository.AtualizarData(cliente.ClienteId, DateTime.Now);
+                cliente.Nome += ". Dica: Alterado";
+
+                _repository.Atualizar(cliente);
 
                 _unitOfWork.SaveChanges();
 
